@@ -30,7 +30,8 @@ export default async (req, res) => {
       .withAudioCodec('libmp3lame')
       .toFormat('mp3')
       .on('error', error => {
-        res.setHeader('X-STREAM-ERROR', error.message)
+        // res.setHeader('X-STREAM-ERROR', error.message)
+        res.status(204).end(error.message)
       })
       .output(res)
       .run()

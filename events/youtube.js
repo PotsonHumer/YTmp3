@@ -1,8 +1,5 @@
 import axios from 'axios'
 import FileDownload from 'js-file-download'
-import { map } from 'lodash'
-
-import Common from '../helper/common'
 
 /**
  * 下載單個 mp3
@@ -14,8 +11,6 @@ const single = async (url, index, dispatch) => {
   if (url === '') {
     return false
   }
-
-  await Common.delay(3000 * (index + 1))
 
   const response = await axios({
     method: 'POST',
@@ -46,12 +41,34 @@ const single = async (url, index, dispatch) => {
       message: message
     })
   }
+
+  return true
 }
 
+/**
+ * 下載自呼叫方法; 用於限制一次只下載一個檔案
+ * @param {Array} urls Youtube 網址陣列
+ * @param {Function} dispatch redux 狀態發佈
+ * @param {Number} index 自迴圈索引
+ */
+const oneAtATime = async (urls, dispatch, index = 0) => {
+  const url = urls[0]
+  const nextIndex = index + 1
+
+  await single(url, index, dispatch)
+  if (typeof urls[nextIndex] !== 'undefined') {
+    oneAtATime(urls, dispatch, nextIndex)
+  }
+}
+
+/**
+ * 處理送出下載請求方法
+ * @param {Array} urls Youtube 網址陣列
+ */
 const send = urls => {
   return async dispatch => {
     dispatch({ type: 'YOUTUBE_SET_SENDING', sending: true })
-    map(urls, (url, index) => single(url, index, dispatch))
+    oneAtATime(urls, dispatch)
   }
 }
 

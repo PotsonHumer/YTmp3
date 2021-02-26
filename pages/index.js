@@ -32,11 +32,10 @@ const Index = props => {
           type="text"
           className="form-control"
           id="ytId"
-          placeholder="輸入 Youtube 網址"
           value={url}
           onChange={e => dispatch({ type: 'YOUTUBE_SET_URL', url: e.target.value, index })}
         />
-        <label htmlFor="ytId">輸入 Youtube 網址</label>
+        <label htmlFor="ytId">{`No. ${index + 1}：輸入 Youtube 網址`}</label>
       </div>
     </div>
   )
@@ -82,7 +81,7 @@ const Index = props => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container">
-        <div className="row pt-3 pb-3">
+        <div className="row pt-3 pb-3 align-items-center">
           <div className="col-12">
             <h1>Youtube to mp3</h1>
           </div>
