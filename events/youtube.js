@@ -52,7 +52,7 @@ const single = async (url, index, dispatch) => {
  * @param {Number} index 自迴圈索引
  */
 const oneAtATime = async (urls, dispatch, index = 0) => {
-  const url = urls[0]
+  const url = urls[index]
   const nextIndex = index + 1
 
   await single(url, index, dispatch)
