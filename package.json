@@ -8,14 +8,30 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.21.1",
-    "ffmpeg": "^0.0.4",
+    "bootstrap": "^5.0.0-beta2",
     "fluent-ffmpeg": "^2.1.2",
     "js-file-download": "^0.4.12",
+    "lodash": "^4.17.21",
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "ytdl": "^1.4.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "ytdl-core": "^4.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.22.0"
   }
 }
