@@ -3,7 +3,7 @@
 This is side project, only for fun
 
 ## develop
-npm run dev
+`npm run dev`
 
 ## deploy
 `npm run build`
