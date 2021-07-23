@@ -1,0 +1,8 @@
+{
+    "name": "YoutubeToMp3",
+    "script": "npx",
+    "args": "next start -p 8083",
+    "error_file": "./logs/error.log",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "autorestart": true
+}
